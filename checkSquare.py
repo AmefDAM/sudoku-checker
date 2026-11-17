@@ -1,42 +1,59 @@
 
 def checkSquare(matrix):
-    for element in matrix:
-        column = len(matrix)
-        row = len(element)
+    counter = 0
+    column = len(matrix)
+
+    while counter < len(matrix):
+        row = len(matrix[counter])
 
         if column != row:
             return False
+
+        counter += 1
+
     return True
     
 
 assert checkSquare([[1, 2, 3],
             [2, 3, 1],
             [3, 1, 2]]) is True
-'''
-incorrecto1 = [[1, 2, 3, 4],
+
+assert checkSquare([[1, 2, 3, 4],
                [2, 3, 1, 3],
                [3, 1, 2, 3],
-               [4, 4, 4, 4]]
+               [4, 4, 4, 4]]) is True
 
-incorrecto2 = [[1, 2, 3, 4],
+
+assert checkSquare([[1, 2, 3, 4],
                [2, 3, 1, 4],
                [4, 1, 2, 3],
-               [3, 4, 1, 2]]
+               [3, 4, 1, 2]]) is True
 
-incorrecto3 = [[1, 2, 3, 4, 5],
+   
+assert checkSquare([[1, 2, 3, 4, 5],
                [2, 3, 1, 5, 6],
                [4, 5, 2, 1, 3],
                [3, 4, 5, 2, 1],
-               [5, 6, 4, 3, 2]]
+               [5, 6, 4, 3, 2]]) is True
 
-incorrecto4 = [['a', 'b', 'c'],
-               ['b', 'c', 'a'],
-               ['c', 'a', 'b']]
+assert checkSquare([['a', 'b', 'c'],
+               def makeRows(matrix):
+    ['b', 'c', 'a'],
+               ['c', 'a', 'b']]) is True
 
-incorrecto5 = [[1, 1.5],
-               [1.5, 1]]
+assert checkSquare([[1, 1.5],
+               [1.5, 1]]) is True
 
-incorrecto6 = [[1, 0, 0, 0],
+assert checkSquare([[1, 0, 0, 0],
                [0, 1, 0],
-               [0, 0, 0, 1]]
-'''
+               [0, 0, 0, 1]]) is False
+
+assert checkSquare([[6, 0, 3, 0],
+               [0, 1, 0, 7, 2],
+               [0, 0, 0, 1]]) is False
+
+assert checkSquare([[0, 3, 0],
+               [0, 1, 0, 2],
+               [0, 0]]) is False
+
+print("All tests passed!")
