@@ -3,6 +3,9 @@ def checkSquare(matrix):
     counter = 0
     column = len(matrix)
 
+    if not matrix:
+        return False 
+
     while counter < len(matrix):
         row = len(matrix[counter])
 
@@ -56,4 +59,4 @@ assert checkSquare([[0, 3, 0],
                [0, 1, 0, 2],
                [0, 0]]) is False
 
-print("All tests passed!")
+'''print("All tests passed!")'''
