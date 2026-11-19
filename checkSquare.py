@@ -40,9 +40,8 @@ assert checkSquare([[1, 2, 3, 4, 5],
                [5, 6, 4, 3, 2]]) is True
 
 assert checkSquare([['a', 'b', 'c'],
-               def makeRows(matrix):
-    ['b', 'c', 'a'],
-               ['c', 'a', 'b']]) is True
+                    ['b', 'c', 'a'],
+                    ['c', 'a', 'b']]) is True
 
 assert checkSquare([[1, 1.5],
                [1.5, 1]]) is True
