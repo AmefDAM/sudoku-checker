@@ -47,4 +47,4 @@ assert checkSquare([[1, 0, 0, 0],
                [0, 1, 0],
                [0, 0, 0, 1]]) is False
 
-print("All tests passed!")
+'''print("All tests passed!")'''
