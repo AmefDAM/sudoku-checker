@@ -6,7 +6,23 @@ from checkCols import checkCols
 
 
 def checkSudoku(matrix):
-    return all([checkSquare(matrix), checkValNum(matrix), checkRows(matrix), checkCols(matrix)])
+    # Precondiciones
+    assert isinstance(matrix, list)
+    assert len(matrix) > 0
+    assert all(len(row) == len(matrix) for row in matrix)
+
+    # Comprobación
+    result = (
+        checkSquare(matrix)
+        and checkValNum(matrix)
+        and checkRows(matrix)
+        and checkCols(matrix)
+    )
+
+    # Poscondición
+    assert isinstance(result, bool)
+
+    return result
 
 # Matriz válida
 assert checkSudoku([
