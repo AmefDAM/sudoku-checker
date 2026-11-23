@@ -6,12 +6,15 @@ from checkCols import checkCols
 
 
 def checkSudoku(matrix):
-    # Precondiciones
+    # Precs
     assert isinstance(matrix, list)
-    assert len(matrix) > 0
+
+    # Cod
+    if len(matrix) == 0:
+        return False
+
     assert all(len(row) == len(matrix) for row in matrix)
 
-    # Comprobación
     result = (
         checkSquare(matrix)
         and checkValNum(matrix)
@@ -19,7 +22,7 @@ def checkSudoku(matrix):
         and checkCols(matrix)
     )
 
-    # Poscondición
+    # Posc
     assert isinstance(result, bool)
 
     return result
