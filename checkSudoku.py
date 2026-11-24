@@ -6,26 +6,29 @@ from checkCols import checkCols
 
 
 def checkSudoku(matrix):
-    # Precs
-    assert isinstance(matrix, list)
+    try:
+        # Precs
+        assert isinstance(matrix, list)
 
-    # Cod
-    if len(matrix) == 0:
+        # Cod
+        if len(matrix) == 0:
+            return False
+
+        assert all(len(row) == len(matrix) for row in matrix)
+
+        result = (
+            checkSquare(matrix)
+            and checkValNum(matrix)
+            and checkRows(matrix)
+            and checkCols(matrix)
+        )
+
+        # Posc
+        assert isinstance(result, bool)
+
+        return result
+    except (AssertionError, TypeError, ValueError, IndexError):
         return False
-
-    assert all(len(row) == len(matrix) for row in matrix)
-
-    result = (
-        checkSquare(matrix)
-        and checkValNum(matrix)
-        and checkRows(matrix)
-        and checkCols(matrix)
-    )
-
-    # Posc
-    assert isinstance(result, bool)
-
-    return result
 
 if __name__ == "__main__":
 
