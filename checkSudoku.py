@@ -1,8 +1,8 @@
 
-from checkSquare import checkSquare
-from checkValNum import checkValNum
-from checkRows import checkRows
-from checkCols import checkCols
+from src.checkSquare import checkSquare
+from src.checkValNum import checkValNum
+from src.checkRows import checkRows
+from src.checkCols import checkCols
 
 
 def checkSudoku(matrix):
