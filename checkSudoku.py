@@ -27,47 +27,49 @@ def checkSudoku(matrix):
 
     return result
 
-# Matriz válida
-assert checkSudoku([
-    [1, 2, 3],
-    [2, 3, 1],
-    [3, 1, 2]
-]) is True
+if __name__ == "__main__":
 
-# Repetidos en una fila
-assert checkSudoku([
-    [1, 1, 3],
-    [2, 3, 1],
-    [3, 1, 2]
-]) is False
+    # Matriz válida
+    assert checkSudoku([
+        [1, 2, 3],
+        [2, 3, 1],
+        [3, 1, 2]
+    ]) is True
 
-# Repetidos en una columna
-assert checkSudoku([
-    [1, 2, 3],
-    [1, 3, 2],
-    [3, 1, 2]
-]) is False
+    # Repetidos en una fila
+    assert checkSudoku([
+        [1, 1, 3],
+        [2, 3, 1],
+        [3, 1, 2]
+    ]) is False
 
-# Número fuera del rango (0)
-assert checkSudoku([
-    [0, 2, 3],
-    [2, 3, 1],
-    [3, 1, 2]
-]) is False
+    # Repetidos en una columna
+    assert checkSudoku([
+        [1, 2, 3],
+        [1, 3, 2],
+        [3, 1, 2]
+    ]) is False
 
-# Número fuera del rango (4)
-assert checkSudoku([
-    [1, 2, 4],
-    [2, 3, 1],
-    [3, 1, 2]
-]) is False
+    # Número fuera del rango (0)
+    assert checkSudoku([
+        [0, 2, 3],
+        [2, 3, 1],
+        [3, 1, 2]
+    ]) is False
 
-# Números negativos
-assert checkSudoku([
-    [1, 2, -1],
-    [2, 3, 1],
-    [3, 1, 2]
-]) is False
+    # Número fuera del rango (4)
+    assert checkSudoku([
+        [1, 2, 4],
+        [2, 3, 1],
+        [3, 1, 2]
+    ]) is False
 
-# Matriz vacía
-assert checkSudoku([]) is False
+    # Números negativos
+    assert checkSudoku([
+        [1, 2, -1],
+        [2, 3, 1],
+        [3, 1, 2]
+    ]) is False
+
+    # Matriz vacía
+    assert checkSudoku([]) is False
