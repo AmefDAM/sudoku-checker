@@ -6,32 +6,68 @@ from src.checkCols import checkCols
 
 def checkSudoku(matrix):
 
-    try:
-        # Precondiciones / validación de entrada
-        if not isinstance(matrix, list):
-            return False
-
-        if len(matrix) == 0:
-            return False
-
-        if not all(isinstance(row, list) for row in matrix):
-            return False
-
-        if not all(len(row) == len(matrix) for row in matrix):
-            return False
-
-        # Código
-        result = (
-            checkSquare(matrix)
-            and checkValNum(matrix)
-            and checkRows(matrix)
-            and checkCols(matrix)
-            )
-
-        # Postcondición
-        assert isinstance(result, bool)
-
-        return result
-
-    except (TypeError, ValueError, IndexError):
+    # Precondiciones / validación de entrada
+    if not isinstance(matrix, list):
         return False
+
+    if not all(isinstance(row, list) for row in matrix):
+        return False
+
+    result = (
+        checkSquare(matrix)
+        and checkValNum(matrix)
+        and checkRows(matrix)
+        and checkCols(matrix)
+        )
+
+    # Postcondición
+    assert isinstance(result, bool)
+
+    return result
+
+if __name__ == "__main__":
+
+    # Matriz válida
+    assert checkSudoku([
+        [1, 2, 3],
+        [2, 3, 1],
+        [3, 1, 2]
+    ]) is True
+
+    # Repetidos en una fila
+    assert checkSudoku([
+        [1, 1, 3],
+        [2, 3, 1],
+        [3, 1, 2]
+    ]) is False
+
+    # Repetidos en una columna
+    assert checkSudoku([
+        [1, 2, 3],
+        [1, 3, 2],
+        [3, 1, 2]
+    ]) is False
+
+    # Número fuera del rango (0)
+    assert checkSudoku([
+        [0, 2, 3],
+        [2, 3, 1],
+        [3, 1, 2]
+    ]) is False
+
+    # Número fuera del rango (4)
+    assert checkSudoku([
+        [1, 2, 4],
+        [2, 3, 1],
+        [3, 1, 2]
+    ]) is False
+
+    # Números negativos
+    assert checkSudoku([
+        [1, 2, -1],
+        [2, 3, 1],
+        [3, 1, 2]
+    ]) is False
+
+    # Matriz vacía
+    assert checkSudoku([]) is False
