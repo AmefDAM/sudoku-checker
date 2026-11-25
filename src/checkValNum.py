@@ -7,7 +7,8 @@ def checkValNum(matrix):
 
     # Cod
     result = all(
-        1 <= element <= len(matrix)
+        isinstance(element, int) and not isinstance(element, bool)
+        and 1 <= element <= len(matrix)
         for row in matrix
         for element in row
     )
